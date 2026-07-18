@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Archivo:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+body{margin:0;background:#F4EFE6;font-family:'Archivo',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth}
+@keyframes tickerX{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes spinSlow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes pulseDot{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes pageFadeIn{from{opacity:0}to{opacity:1}}
+img{-webkit-user-drag:none;user-select:none}
+summary::-webkit-details-marker{display:none}
+details[open] .faqPlus{transform:rotate(45deg)}
+@media (max-width:1120px){.pfDecor{display:none}}
+</style>
+</helmet>
+
+<div id="top" style="color:#1E1A16;overflow:clip">
+
+  {{ introOverlay }}
+  {{ pageLoader }}
+
+  <!-- ============ HEADER ============ -->
+  <header data-screen-label="Header" style="position:sticky;top:0;z-index:80;background:#F4EFE6E6;backdrop-filter:blur(8px);border-bottom:1.5px solid #1E1A16">
+    <div style="max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 32px;height:58px">
+      <a href="#top" style="font:700 13px 'JetBrains Mono',monospace;color:#1E1A16;text-decoration:none">~/allain.dev</a>
+      <nav style="display:flex;gap:22px">
+        <a href="#work" style="font:600 13px 'Archivo',sans-serif;color:#1E1A16;text-decoration:none;border-bottom:2px solid transparent;padding:4px 2px" style-hover="border-bottom-color:#1E1A16;background:#F2E560">Work</a>
+        <a href="#quality" style="font:600 13px 'Archivo',sans-serif;color:#1E1A16;text-decoration:none;border-bottom:2px solid transparent;padding:4px 2px" style-hover="border-bottom-color:#1E1A16;background:#F2E560">Quality</a>
+        <a href="#journey" style="font:600 13px 'Archivo',sans-serif;color:#1E1A16;text-decoration:none;border-bottom:2px solid transparent;padding:4px 2px" style-hover="border-bottom-color:#1E1A16;background:#F2E560">Journey</a>
+        <a href="#faq" style="font:600 13px 'Archivo',sans-serif;color:#1E1A16;text-decoration:none;border-bottom:2px solid transparent;padding:4px 2px" style-hover="border-bottom-color:#1E1A16;background:#F2E560">FAQ</a>
+        <a href="#contact" style="font:600 13px 'Archivo',sans-serif;color:#1E1A16;text-decoration:none;border-bottom:2px solid transparent;padding:4px 2px" style-hover="border-bottom-color:#1E1A16;background:#F2E560">Contact</a>
+      </nav>
+      <sc-if value="{{ openToWork }}" hint-placeholder-val="{{ true }}">
+        <a href="#contact" style="display:inline-flex;align-items:center;gap:7px;font:700 12px 'Archivo',sans-serif;color:#1E1A16;text-decoration:none;background:#7ED03E;border:1.5px solid #1E1A16;border-radius:999px;padding:7px 14px;box-shadow:2px 2px 0 #1E1A16;transition:all .15s" style-hover="transform:translate(-1px,-1px);box-shadow:3px 3px 0 #1E1A16"><span style="width:7px;height:7px;border-radius:50%;background:#1E1A16;animation:pulseDot 2s ease-in-out infinite"></span>open to roles</a>
+      </sc-if>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section data-screen-label="Hero" style="position:relative;background-color:#F4EFE6;background-image:repeating-linear-gradient(0deg,rgba(30,26,22,.055) 0 1px,transparent 1px 26px),repeating-linear-gradient(90deg,rgba(30,26,22,.055) 0 1px,transparent 1px 26px);border-bottom:1.5px solid #1E1A16;padding:84px 32px 96px">
+
+    <!-- collage decor -->
+    <div class="pfDecor" style="position:absolute;left:5.5%;top:150px;transform:rotate(-2deg)">
+      <div style="position:relative;background:#FDFBF4;border:1.5px solid #1E1A16;box-shadow:4px 5px 0 rgba(30,26,22,.25);padding:10px 10px 12px">
+        <div style="position:absolute;top:-11px;left:50%;transform:translateX(-50%) rotate(3deg);width:74px;height:22px;background:#F2E56099;border:1px solid rgba(30,26,22,.25)"></div>
+        <img draggable="false" onContextMenu="{{ blockCtx }}" src="uploads/Aj face3.jpg" alt="Allain Quilala" style="display:block;width:158px;height:158px;object-fit:cover;background:#EFE8DA"/>
+        <div style="margin-top:9px;font:400 11px 'JetBrains Mono',monospace;color:#5A5348;text-align:center">allain.jpg — QC, PH</div>
+      </div>
+    </div>
+    <div class="pfDecor" style="position:absolute;right:6%;top:140px">{{ stampEl }}</div>
+    <div class="pfDecor" aria-hidden="true" style="position:absolute;right:11%;bottom:90px;width:120px;height:120px;background-image:radial-gradient(rgba(30,26,22,.3) 1.3px,transparent 1.3px);background-size:11px 11px;border-radius:50%"></div>
+
+    <sc-if value="{{ showDoodles }}" hint-placeholder-val="{{ true }}">
+      <span aria-hidden="true" style="position:absolute;left:16%;top:88px;font:400 30px 'Instrument Serif',serif;transform:rotate(-12deg);display:inline-block">✳</span>
+      <span aria-hidden="true" style="position:absolute;right:20%;top:70px;font:400 20px 'Instrument Serif',serif;transform:rotate(10deg);display:inline-block;color:#B0552F">✦</span>
+      <span aria-hidden="true" style="position:absolute;left:9%;bottom:110px;font:400 24px 'Instrument Serif',serif;transform:rotate(8deg);display:inline-block;color:#6D57C8">✺</span>
+    </sc-if>
+
+    <div style="max-width:760px;margin:0 auto;text-align:center;position:relative">
+      <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap">
+        <span style="font:500 11px 'JetBrains Mono',monospace;letter-spacing:.05em;background:#FDFBF4;border:1.5px solid #1E1A16;border-radius:999px;padding:6px 13px;transform:rotate(-1deg)">● SHIPPING SINCE 2023</span>
+        <span style="font:500 11px 'JetBrains Mono',monospace;letter-spacing:.05em;background:#FDFBF4;border:1.5px solid #1E1A16;border-radius:999px;padding:6px 13px;transform:rotate(1.2deg)">QUEZON CITY · ON-SITE / REMOTE</span>
+      </div>
+      <h1 style="margin:30px 0 0;font:400 88px/1.02 'Instrument Serif',serif;letter-spacing:-.015em">I ship the <em style="font-style:italic;color:#6D57C8">whole</em> stack.</h1>
+      <p style="margin:24px auto 0;max-width:560px;font:400 16.5px/1.65 'Archivo',sans-serif;color:#4A443B">Next.js front ends, Python APIs, payments, AI media, e-learning — whatever the product needs, built, tested and deployed end to end by one developer. I'm <strong style="font-weight:600">Allain Quilala</strong>, full-stack developer.</p>
+      <div style="display:flex;justify-content:center;gap:14px;margin-top:32px;flex-wrap:wrap">
+        <a href="#work" style="font:700 15px 'Archivo',sans-serif;color:#1E1A16;text-decoration:none;background:#7ED03E;border:1.5px solid #1E1A16;border-radius:999px;padding:13px 26px;box-shadow:3px 3px 0 #1E1A16;transition:all .15s" style-hover="transform:translate(-2px,-2px);box-shadow:5px 5px 0 #1E1A16">See what I've shipped ↓</a>
+        <a href="mailto:jhandred05@gmail.com" style="font:700 15px 'Archivo',sans-serif;color:#1E1A16;text-decoration:none;background:#FDFBF4;border:1.5px solid #1E1A16;border-radius:999px;padding:13px 26px;box-shadow:3px 3px 0 #1E1A16;transition:all .15s" style-hover="transform:translate(-2px,-2px);box-shadow:5px 5px 0 #1E1A16">jhandred05@gmail.com</a>
+      </div>
+      <div style="margin-top:26px;font:400 11.5px 'JetBrains Mono',monospace;color:#7A7263">free to interview · flexible across domains · on-site or remote</div>
+    </div>
+  </section>
+
+  <!-- ============ TICKER ============ -->
+  <div data-screen-label="Ticker" style="background:#1E1A16;border-bottom:1.5px solid #1E1A16;padding:13px 0;overflow:hidden">{{ marqueeEl }}</div>
+
+  <!-- ============ 01 WORK — PEACH ============ -->
+  <section id="work" data-screen-label="Shipped work" style="position:relative;background:#F3CDA4;border-bottom:1.5px solid #1E1A16;padding:78px 32px 84px">
+    <sc-if value="{{ showDoodles }}" hint-placeholder-val="{{ true }}">
+      <span aria-hidden="true" style="position:absolute;right:8%;top:66px;font:400 28px 'Instrument Serif',serif;transform:rotate(14deg);display:inline-block;color:#B0552F">✳</span>
+      <span aria-hidden="true" style="position:absolute;right:15%;top:150px;font:400 18px 'Instrument Serif',serif;transform:rotate(-10deg);display:inline-block;color:#6D57C8">✦</span>
+      <svg aria-hidden="true" style="position:absolute;left:5%;bottom:42px;transform:rotate(-8deg)" width="56" height="16" viewBox="0 0 56 16" fill="none"><path d="M2 11 Q9 3 16 10 T30 9 T44 8 T54 5" stroke="#1E1A16" stroke-width="1.8" stroke-linecap="round"></path></svg>
+    </sc-if>
+    <div style="max-width:1160px;margin:0 auto">
+      <div style="font:500 12px 'JetBrains Mono',monospace;letter-spacing:.06em;color:#5A4630">// 01 · shipped work</div>
+      <h2 style="margin:10px 0 0;font:400 54px/1.05 'Instrument Serif',serif">Real products, <em style="font-style:italic">real users.</em></h2>
+      <p style="margin:14px 0 0;max-width:560px;font:400 15px/1.6 'Archivo',sans-serif;color:#4A443B">Three production apps across fintech, AI media and edtech — I go where the product goes. Client work, so screenshots live behind an email; the slots below are ready when you are.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:40px">
+        <article style="position:relative;background:#FDF6EC;border:2px solid #1E1A16;border-radius:225px 16px 245px 14px / 14px 235px 15px 250px;box-shadow:4px 5px 0 rgba(30,26,22,.3);padding:22px 22px 24px;transition:transform .18s" style-hover="transform:translateY(-4px)">
+          <div style="position:absolute;top:-12px;left:34px;transform:rotate(-5deg);width:70px;height:22px;background:#F2E560B3;border:1px solid rgba(30,26,22,.25)"></div>
+          <a href="case-crypto.html" style="display:block"><img draggable="false" onContextMenu="{{ blockCtx }}" src="uploads/blurred-home.png" alt="Crypto lending dashboard" style="display:block;width:100%;height:160px;object-fit:cover;object-position:top;border:1.5px solid #1E1A16;border-radius:8px;background:#F4EFE6"/></a>
+          <h3 style="margin:16px 0 0;font:400 26px/1.15 'Instrument Serif',serif">Crypto Lending Platform</h3>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px">
+            <span style="font:500 10px 'JetBrains Mono',monospace;border:1px solid #1E1A1666;border-radius:999px;padding:3px 9px;color:#5A5348">next.js</span>
+            <span style="font:500 10px 'JetBrains Mono',monospace;border:1px solid #1E1A1666;border-radius:999px;padding:3px 9px;color:#5A5348">blockbee</span>
+            <span style="font:500 10px 'JetBrains Mono',monospace;border:1px solid #1E1A1666;border-radius:999px;padding:3px 9px;color:#5A5348">fintech</span>
+          </div>
+          <p style="margin:11px 0 0;font:400 13.5px/1.6 'Archivo',sans-serif;color:#4A443B">Deposits, investment plans, automated interest accrual and multi-tier referrals — real crypto in, real crypto out, live via the BlockBee API.</p>
+          <a href="case-crypto.html" style="display:inline-block;margin-top:14px;font:600 13px 'Archivo',sans-serif;color:#1E1A16;text-decoration:underline;text-underline-offset:3px" style-hover="background:#F2E560">View case study →</a>
+        </article>
+        <article style="position:relative;background:#FDF6EC;border:2px solid #1E1A16;border-radius:18px 235px 15px 240px / 240px 16px 250px 14px;box-shadow:4px 5px 0 rgba(30,26,22,.3);padding:22px 22px 24px;transition:transform .18s" style-hover="transform:translateY(-4px)">
+          <div style="position:absolute;top:-12px;right:38px;transform:rotate(4deg);width:70px;height:22px;background:#F2E560B3;border:1px solid rgba(30,26,22,.25)"></div>
+          <a href="case-streaming.html" style="display:block"><img draggable="false" onContextMenu="{{ blockCtx }}" src="uploads/pasted-1784350527088-0.png" alt="AI face-swap streaming studio" style="display:block;width:100%;height:160px;object-fit:cover;object-position:top;border:1.5px solid #1E1A16;border-radius:8px;background:#F4EFE6"/></a>
+          <h3 style="margin:16px 0 0;font:400 26px/1.15 'Instrument Serif',serif">Live AI Face-Swap Streaming</h3>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px">
+            <span style="font:500 10px 'JetBrains Mono',monospace;border:1px solid #1E1A1666;border-radius:999px;padding:3px 9px;color:#5A5348">real-time</span>
+            <span style="font:500 10px 'JetBrains Mono',monospace;border:1px solid #1E1A1666;border-radius:999px;padding:3px 9px;color:#5A5348">akool api</span>
+            <span style="font:500 10px 'JetBrains Mono',monospace;border:1px solid #1E1A1666;border-radius:999px;padding:3px 9px;color:#5A5348">ai media</span>
+          </div>
+          <p style="margin:11px 0 0;font:400 13.5px/1.6 'Archivo',sans-serif;color:#4A443B">A live-streaming dashboard with server-side Akool integration — AI face-swapping applied directly into broadcasts, in real time.</p>
+          <a href="case-streaming.html" style="display:inline-block;margin-top:14px;font:600 13px 'Archivo',sans-serif;color:#1E1A16;text-decoration:underline;text-underline-offset:3px" style-hover="background:#F2E560">View case study →</a>
+        </article>
+        <article style="position:relative;background:#FDF6EC;border:2px solid #1E1A16;border-radius:240px 14px 230px 18px / 15px 245px 14px 235px;box-shadow:4px 5px 0 rgba(30,26,22,.3);padding:22px 22px 24px;transition:transform .18s" style-hover="transform:translateY(-4px)">
+          <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%) rotate(-3deg);width:70px;height:22px;background:#F2E560B3;border:1px solid rgba(30,26,22,.25)"></div>
+          <a href="case-elearning.html" style="display:block"><img draggable="false" onContextMenu="{{ blockCtx }}" src="uploads/pasted-1783925479175-0.png" alt="Gamified e-learning dashboard" style="display:block;width:100%;height:160px;object-fit:cover;object-position:top;border:1.5px solid #1E1A16;border-radius:8px;background:#F4EFE6"/></a>
+          <h3 style="margin:16px 0 0;font:400 26px/1.15 'Instrument Serif',serif">Gamified E-Learning Platform</h3>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px">
+            <span style="font:500 10px 'JetBrains Mono',monospace;border:1px solid #1E1A1666;border-radius:999px;padding:3px 9px;color:#5A5348">edtech</span>
+            <span style="font:500 10px 'JetBrains Mono',monospace;border:1px solid #1E1A1666;border-radius:999px;padding:3px 9px;color:#5A5348">gamification</span>
+            <span style="font:500 10px 'JetBrains Mono',monospace;border:1px solid #1E1A1666;border-radius:999px;padding:3px 9px;color:#5A5348">next.js</span>
+          </div>
+          <p style="margin:11px 0 0;font:400 13.5px/1.6 'Archivo',sans-serif;color:#4A443B">Udemy-style course management with custom gamification, built to lift retention and course-completion rates.</p>
+          <a href="case-elearning.html" style="display:inline-block;margin-top:14px;font:600 13px 'Archivo',sans-serif;color:#1E1A16;text-decoration:underline;text-underline-offset:3px" style-hover="background:#F2E560">View case study →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 QUALITY — BUTTER ============ -->
+  <section id="quality" data-screen-label="Quality" style="position:relative;background:#F2E560;border-bottom:1.5px solid #1E1A16;padding:78px 32px 84px">
+    <sc-if value="{{ showDoodles }}" hint-placeholder-val="{{ true }}">
+      <span aria-hidden="true" style="position:absolute;right:7%;top:82px;font:400 30px 'Instrument Serif',serif;transform:rotate(10deg);display:inline-block">✺</span>
+      <svg aria-hidden="true" style="position:absolute;right:13%;top:170px;transform:rotate(6deg)" width="56" height="16" viewBox="0 0 56 16" fill="none"><path d="M2 11 Q9 3 16 10 T30 9 T44 8 T54 5" stroke="#B0552F" stroke-width="1.8" stroke-linecap="round"></path></svg>
+      <span aria-hidden="true" style="position:absolute;left:6%;bottom:48px;font:400 19px 'Instrument Serif',serif;transform:rotate(-12deg);display:inline-block;color:#6D57C8">✦</span>
+    </sc-if>
+    <div style="max-width:1160px;margin:0 auto">
+      <div style="font:500 12px 'JetBrains Mono',monospace;letter-spacing:.06em;color:#6B6018">// 02 · how I keep it solid</div>
+      <h2 style="margin:10px 0 0;font:400 54px/1.05 'Instrument Serif',serif">Quality is <em style="font-style:italic">non-negotiable.</em></h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:40px">
+        <div style="background:#FDFBF4;border:1.5px solid #1E1A16;border-radius:16px;box-shadow:3px 4px 0 rgba(30,26,22,.3);padding:24px 26px">
+          <div style="width:38px;height:38px;border:1.5px solid #1E1A16;border-radius:50%;background:#CFE8DC;display:flex;align-items:center;justify-content:center"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M3 9 L7 13 L14 4" stroke="#1E1A16" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+          <h3 style="margin:16px 0 0;font:600 17px 'Archivo',sans-serif">Playwright E2E, always</h3>
+          <p style="margin:9px 0 0;font:400 14px/1.6 'Archivo',sans-serif;color:#4A443B">Critical paths tested end to end before anything merges. The pipeline is green, or it doesn't ship.</p>
+        </div>
+        <div style="background:#FDFBF4;border:1.5px solid #1E1A16;border-radius:16px;box-shadow:3px 4px 0 rgba(30,26,22,.3);padding:24px 26px">
+          <div style="width:38px;height:38px;border:1.5px solid #1E1A16;border-radius:50%;background:#CDBBF2;display:flex;align-items:center;justify-content:center"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M6.5 4 L3 8.5 L6.5 13 M10.5 4 L14 8.5 L10.5 13" stroke="#1E1A16" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+          <h3 style="margin:16px 0 0;font:600 17px 'Archivo',sans-serif">TypeScript, strict mode</h3>
+          <p style="margin:9px 0 0;font:400 14px/1.6 'Archivo',sans-serif;color:#4A443B">Typed from the API boundary down to the last component prop. Fewer 3 a.m. surprises in production.</p>
+        </div>
+        <div style="background:#FDFBF4;border:1.5px solid #1E1A16;border-radius:16px;box-shadow:3px 4px 0 rgba(30,26,22,.3);padding:24px 26px">
+          <div style="width:38px;height:38px;border:1.5px solid #1E1A16;border-radius:50%;background:#F6D9BE;display:flex;align-items:center;justify-content:center"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M8.5 1.5 L10 6.5 L15 8.5 L10 10.5 L8.5 15.5 L7 10.5 L2 8.5 L7 6.5 Z" stroke="#1E1A16" stroke-width="1.4" stroke-linejoin="round"></path></svg></div>
+          <h3 style="margin:16px 0 0;font:600 17px 'Archivo',sans-serif">AI-assisted, human-owned</h3>
+          <p style="margin:9px 0 0;font:400 14px/1.6 'Archivo',sans-serif;color:#4A443B">Claude Code accelerates test generation and refactors — but I review and own every line that lands.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 JOURNEY — LILAC ============ -->
+  <section id="journey" data-screen-label="Journey" style="position:relative;background:#A292E8;border-bottom:1.5px solid #1E1A16;padding:78px 32px 88px">
+    <sc-if value="{{ showDoodles }}" hint-placeholder-val="{{ true }}">
+      <svg aria-hidden="true" style="position:absolute;right:7%;top:84px;transform:rotate(6deg)" width="62" height="48" viewBox="0 0 62 48" fill="none"><path d="M9 40 V17" stroke="#1E1A16" stroke-width="1.8" stroke-linecap="round"></path><path d="M9 26 Q9 15 24 15 H38" stroke="#1E1A16" stroke-width="1.8" stroke-linecap="round"></path><circle cx="9" cy="10" r="4.5" fill="#F2E560" stroke="#1E1A16" stroke-width="1.6"></circle><circle cx="9" cy="40" r="4.5" fill="#FBF7EE" stroke="#1E1A16" stroke-width="1.6"></circle><circle cx="46" cy="15" r="4.5" fill="#7ED03E" stroke="#1E1A16" stroke-width="1.6"></circle></svg>
+      <span aria-hidden="true" style="position:absolute;left:5%;bottom:76px;font:400 26px 'Instrument Serif',serif;transform:rotate(-10deg);display:inline-block;color:#FBF7EE">✳</span>
+      <span aria-hidden="true" style="position:absolute;left:11%;top:110px;font:400 18px 'Instrument Serif',serif;transform:rotate(8deg);display:inline-block;color:#F2E560">✦</span>
+    </sc-if>
+    <div style="max-width:880px;margin:0 auto">
+      <div style="font:500 12px 'JetBrains Mono',monospace;letter-spacing:.06em;color:#3A2E6E">// 03 · git log --journey</div>
+      <h2 style="margin:10px 0 0;font:400 54px/1.05 'Instrument Serif',serif">From bootcamp <em style="font-style:italic">to production.</em></h2>
+
+      <div style="display:flex;flex-direction:column;gap:0;margin-top:42px">
+        <div style="display:grid;grid-template-columns:112px 1fr;gap:20px;background:#7ED03E;border:1.5px solid #1E1A16;border-radius:14px;box-shadow:3px 4px 0 rgba(30,26,22,.35);padding:20px 24px">
+          <div style="font:700 12px 'JetBrains Mono',monospace;background:#FDFBF4;border:1.5px solid #1E1A16;border-radius:8px;height:30px;display:flex;align-items:center;justify-content:center">HEAD</div>
+          <div>
+            <div style="font:500 11px 'JetBrains Mono',monospace;color:#2A4413">NOW · QUEZON CITY · FLEXIBLE SETUP</div>
+            <h3 style="margin:5px 0 0;font:400 25px 'Instrument Serif',serif">main — open to full-time roles</h3>
+            <p style="margin:7px 0 0;font:400 13.5px/1.55 'Archivo',sans-serif;color:#243A11">Looking for a team that ships — flexible on domain, on-site or remote. Replies within a day, GMT+8.</p>
+          </div>
+        </div>
+        <div style="width:2px;height:22px;background:#1E1A16;margin-left:78px"></div>
+        <div style="display:grid;grid-template-columns:112px 1fr;gap:20px;background:#FBF7EE;border:1.5px solid #1E1A16;border-radius:14px;box-shadow:3px 4px 0 rgba(30,26,22,.35);padding:20px 24px">
+          <div style="font:500 12px 'JetBrains Mono',monospace;background:#F4EFE6;border:1.5px solid #1E1A16;border-radius:8px;height:30px;display:flex;align-items:center;justify-content:center">a1f00d6</div>
+          <div>
+            <div style="font:500 11px 'JetBrains Mono',monospace;color:#6B6355">2026 · MABUHAYTECH · BGC, TAGUIG</div>
+            <h3 style="margin:5px 0 0;font:400 25px 'Instrument Serif',serif">feat — AI infrastructure &amp; platform ownership</h3>
+            <p style="margin:7px 0 0;font:400 13.5px/1.55 'Archivo',sans-serif;color:#4A443B">Built the admin monitoring dashboard and control center for an enterprise AI image/video generation platform, led frontend architecture for a real-time AI livestreaming site, and delivered CreativeAI School — a gamified e-learning platform — full-stack, end to end.</p>
+          </div>
+        </div>
+        <div style="width:2px;height:22px;background:#1E1A16;margin-left:78px"></div>
+        <div style="display:grid;grid-template-columns:112px 1fr;gap:20px;background:#FBF7EE;border:1.5px solid #1E1A16;border-radius:14px;box-shadow:3px 4px 0 rgba(30,26,22,.35);padding:20px 24px">
+          <div style="font:500 12px 'JetBrains Mono',monospace;background:#F4EFE6;border:1.5px solid #1E1A16;border-radius:8px;height:30px;display:flex;align-items:center;justify-content:center">5ca1e25</div>
+          <div>
+            <div style="font:500 11px 'JetBrains Mono',monospace;color:#6B6355">2025 · MABUHAYTECH · EASTWOOD → BGC</div>
+            <h3 style="margin:5px 0 0;font:400 25px 'Instrument Serif',serif">deploy — lending platform shipped &amp; scaling up</h3>
+            <p style="margin:7px 0 0;font:400 13.5px/1.55 'Archivo',sans-serif;color:#4A443B">Delivered the crypto lending platform end to end — automated interest calculations and payment integrations live in production. Selected for a high-impact outsourcing project with an external partner, mastering advanced React/Next.js patterns and type-safe data fetching, and stood up Python Flask backends for internal services.</p>
+          </div>
+        </div>
+        <div style="width:2px;height:22px;background:#1E1A16;margin-left:78px"></div>
+        <div style="display:grid;grid-template-columns:112px 1fr;gap:20px;background:#FBF7EE;border:1.5px solid #1E1A16;border-radius:14px;box-shadow:3px 4px 0 rgba(30,26,22,.35);padding:20px 24px">
+          <div style="font:500 12px 'JetBrains Mono',monospace;background:#F4EFE6;border:1.5px solid #1E1A16;border-radius:8px;height:30px;display:flex;align-items:center;justify-content:center">badc0de</div>
+          <div>
+            <div style="font:500 11px 'JetBrains Mono',monospace;color:#6B6355">2024 · MABUHAYTECH · EASTWOOD, QC</div>
+            <h3 style="margin:5px 0 0;font:400 25px 'Instrument Serif',serif">arch — internal tooling &amp; fintech foundations</h3>
+            <p style="margin:7px 0 0;font:400 13.5px/1.55 'Archivo',sans-serif;color:#4A443B">Designed and engineered a full-cycle creative ticketing system for client image-editing requests, and laid the core architecture and backend logic for the high-security, multi-tier crypto lending platform.</p>
+          </div>
+        </div>
+        <div style="width:2px;height:22px;background:#1E1A16;margin-left:78px"></div>
+        <div style="display:grid;grid-template-columns:112px 1fr;gap:20px;background:#FBF7EE;border:1.5px solid #1E1A16;border-radius:14px;box-shadow:3px 4px 0 rgba(30,26,22,.35);padding:20px 24px">
+          <div style="font:500 12px 'JetBrains Mono',monospace;background:#F4EFE6;border:1.5px solid #1E1A16;border-radius:8px;height:30px;display:flex;align-items:center;justify-content:center">cafe809</div>
+          <div>
+            <div style="font:500 11px 'JetBrains Mono',monospace;color:#6B6355">SEP 2023 · MABUHAYTECH · EASTWOOD, QC</div>
+            <h3 style="margin:5px 0 0;font:400 25px 'Instrument Serif',serif">init — first deploy, first web presence</h3>
+            <p style="margin:7px 0 0;font:400 13.5px/1.55 'Archivo',sans-serif;color:#4A443B">Joined as a junior full-stack developer and spearheaded the company's inaugural corporate site on WordPress — MabuhayTech's first web presence.</p>
+          </div>
+        </div>
+        <div style="width:2px;height:22px;background:#1E1A16;margin-left:78px"></div>
+        <div style="display:grid;grid-template-columns:112px 1fr;gap:20px;background:#FBF7EE;border:1.5px solid #1E1A16;border-radius:14px;box-shadow:3px 4px 0 rgba(30,26,22,.35);padding:20px 24px">
+          <div style="font:500 12px 'JetBrains Mono',monospace;background:#F4EFE6;border:1.5px solid #1E1A16;border-radius:8px;height:30px;display:flex;align-items:center;justify-content:center">beef123</div>
+          <div>
+            <div style="font:500 11px 'JetBrains Mono',monospace;color:#6B6355">JAN – APR 2023 · VILLAGE 88 INC.</div>
+            <h3 style="margin:5px 0 0;font:400 25px 'Instrument Serif',serif">feat — full-stack bootcamp, certified ×3</h3>
+            <p style="margin:7px 0 0;font:400 13.5px/1.55 'Archivo',sans-serif;color:#4A443B">Ruby on Rails, Advanced JavaScript, Web Fundamentals — all Certified Proficient, in four months flat.</p>
+          </div>
+        </div>
+        <div style="width:2px;height:22px;background:#1E1A16;margin-left:78px"></div>
+        <div style="display:grid;grid-template-columns:112px 1fr;gap:20px;background:#FBF7EE;border:1.5px solid #1E1A16;border-radius:14px;box-shadow:3px 4px 0 rgba(30,26,22,.35);padding:20px 24px">
+          <div style="font:500 12px 'JetBrains Mono',monospace;background:#F4EFE6;border:1.5px solid #1E1A16;border-radius:8px;height:30px;display:flex;align-items:center;justify-content:center">f00d5e7</div>
+          <div>
+            <div style="font:500 11px 'JetBrains Mono',monospace;color:#6B6355">AUG 2021 – APR 2022 · T.I.P.</div>
+            <h3 style="margin:5px 0 0;font:400 25px 'Instrument Serif',serif">boot — computer engineering coursework</h3>
+            <p style="margin:7px 0 0;font:400 13.5px/1.55 'Archivo',sans-serif;color:#4A443B">Engineering principles, programming fundamentals and technical problem-solving at the Technological Institute of the Philippines.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 FAQ — MINT ============ -->
+  <section id="faq" data-screen-label="FAQ" style="position:relative;background:#CDEDE4;border-bottom:1.5px solid #1E1A16;padding:78px 32px 88px">
+    <sc-if value="{{ showDoodles }}" hint-placeholder-val="{{ true }}">
+      <span aria-hidden="true" style="position:absolute;right:9%;top:74px;font:italic 400 46px 'Instrument Serif',serif;transform:rotate(12deg);display:inline-block;color:#B0552F">?</span>
+      <span aria-hidden="true" style="position:absolute;left:7%;bottom:84px;font:400 24px 'Instrument Serif',serif;transform:rotate(-8deg);display:inline-block">✳</span>
+      <svg aria-hidden="true" style="position:absolute;right:14%;bottom:56px;transform:rotate(-5deg)" width="56" height="16" viewBox="0 0 56 16" fill="none"><path d="M2 11 Q9 3 16 10 T30 9 T44 8 T54 5" stroke="#2E5F52" stroke-width="1.8" stroke-linecap="round"></path></svg>
+    </sc-if>
+    <div style="max-width:760px;margin:0 auto">
+      <div style="font:500 12px 'JetBrains Mono',monospace;letter-spacing:.06em;color:#2E5F52">// 04 · faq</div>
+      <h2 style="margin:10px 0 0;font:400 54px/1.05 'Instrument Serif',serif">Things recruiters <em style="font-style:italic">actually ask.</em></h2>
+
+      <div style="display:flex;flex-direction:column;gap:14px;margin-top:38px">
+        <details style="background:#FDFBF4;border:1.5px solid #1E1A16;border-radius:14px;box-shadow:3px 3px 0 rgba(30,26,22,.3);padding:0 22px">
+          <summary style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font:600 16px 'Archivo',sans-serif;padding:18px 0">What's your core stack?<span class="faqPlus" style="font:400 24px 'Instrument Serif',serif;transition:transform .2s;display:inline-block">+</span></summary>
+          <p style="margin:0;padding:0 0 18px;font:400 14.5px/1.65 'Archivo',sans-serif;color:#4A443B">Next.js + React + TypeScript on the front, Next.js Server Components and Python (Flask) on the back, Tailwind + shadcn UI for interface work, TanStack for data. Deployed on GCP and Vercel.</p>
+        </details>
+        <details style="background:#FDFBF4;border:1.5px solid #1E1A16;border-radius:14px;box-shadow:3px 3px 0 rgba(30,26,22,.3);padding:0 22px">
+          <summary style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font:600 16px 'Archivo',sans-serif;padding:18px 0">Remote or on-site?<span class="faqPlus" style="font:400 24px 'Instrument Serif',serif;transition:transform .2s;display:inline-block">+</span></summary>
+          <p style="margin:0;padding:0 0 18px;font:400 14.5px/1.65 'Archivo',sans-serif;color:#4A443B">Based in Quezon City (GMT+8). My current role at MabuhayTech is on-site, and I'm open to on-site, hybrid, or remote — whatever works best for the team.</p>
+        </details>
+        <details style="background:#FDFBF4;border:1.5px solid #1E1A16;border-radius:14px;box-shadow:3px 3px 0 rgba(30,26,22,.3);padding:0 22px">
+          <summary style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font:600 16px 'Archivo',sans-serif;padding:18px 0">Can you really own a feature end to end?<span class="faqPlus" style="font:400 24px 'Instrument Serif',serif;transition:transform .2s;display:inline-block">+</span></summary>
+          <p style="margin:0;padding:0 0 18px;font:400 14.5px/1.65 'Archivo',sans-serif;color:#4A443B">Yes — UI, API, cloud infrastructure, and the Playwright suite that protects it. The crypto lending platform shipped exactly that way: deposits, interest accrual, referrals, payments.</p>
+        </details>
+        <details style="background:#FDFBF4;border:1.5px solid #1E1A16;border-radius:14px;box-shadow:3px 3px 0 rgba(30,26,22,.3);padding:0 22px">
+          <summary style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font:600 16px 'Archivo',sans-serif;padding:18px 0">What's with the AI tooling?<span class="faqPlus" style="font:400 24px 'Instrument Serif',serif;transition:transform .2s;display:inline-block">+</span></summary>
+          <p style="margin:0;padding:0 0 18px;font:400 14.5px/1.65 'Archivo',sans-serif;color:#4A443B">I use Claude Code to accelerate test-case generation and refactoring, and I've integrated AI media APIs (Akool face-swap) into live products. AI speeds me up; review and ownership stay human.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT — CREAM ============ -->
+  <section id="contact" data-screen-label="Contact" style="position:relative;background-color:#F4EFE6;background-image:repeating-linear-gradient(0deg,rgba(30,26,22,.055) 0 1px,transparent 1px 26px),repeating-linear-gradient(90deg,rgba(30,26,22,.055) 0 1px,transparent 1px 26px);padding:92px 32px 96px;text-align:center">
+    <sc-if value="{{ showDoodles }}" hint-placeholder-val="{{ true }}">
+      <span aria-hidden="true" style="position:absolute;left:14%;top:80px;font:400 26px 'Instrument Serif',serif;transform:rotate(-10deg);display:inline-block;color:#B0552F">✦</span>
+      <span aria-hidden="true" style="position:absolute;right:13%;top:120px;font:400 32px 'Instrument Serif',serif;transform:rotate(12deg);display:inline-block">✳</span>
+      <span aria-hidden="true" style="position:absolute;right:24%;bottom:70px;font:400 22px 'Instrument Serif',serif;transform:rotate(-6deg);display:inline-block;color:#6D57C8">✺</span>
+    </sc-if>
+    <div style="max-width:680px;margin:0 auto">
+      <h2 style="margin:0;font:400 72px/1.04 'Instrument Serif',serif">Merge <em style="font-style:italic;color:#6D57C8">me</em> into your team.</h2>
+      <p style="margin:18px 0 0;font:400 15.5px/1.6 'Archivo',sans-serif;color:#4A443B">Fast, reliable, maintainable products — and a reply within a day.</p>
+      <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:30px">
+        <a href="mailto:jhandred05@gmail.com" style="font:700 14px 'Archivo',sans-serif;color:#1E1A16;text-decoration:none;background:#7ED03E;border:1.5px solid #1E1A16;border-radius:999px;padding:12px 24px;box-shadow:3px 3px 0 #1E1A16;transition:all .15s" style-hover="transform:translate(-2px,-2px);box-shadow:5px 5px 0 #1E1A16">Email me</a>
+        <a href="https://github.com/IAteDreams" target="_blank" rel="noreferrer" style="font:700 14px 'Archivo',sans-serif;color:#1E1A16;text-decoration:none;background:#FDFBF4;border:1.5px solid #1E1A16;border-radius:999px;padding:12px 24px;box-shadow:3px 3px 0 #1E1A16;transition:all .15s" style-hover="transform:translate(-2px,-2px);box-shadow:5px 5px 0 #1E1A16">GitHub</a>
+        <a href="https://www.linkedin.com/in/allain-jhandred-quilala-289162262/" target="_blank" rel="noreferrer" style="font:700 14px 'Archivo',sans-serif;color:#1E1A16;text-decoration:none;background:#FDFBF4;border:1.5px solid #1E1A16;border-radius:999px;padding:12px 24px;box-shadow:3px 3px 0 #1E1A16;transition:all .15s" style-hover="transform:translate(-2px,-2px);box-shadow:5px 5px 0 #1E1A16">LinkedIn</a>
+        <a href="uploads/Allain_Quilala_Resume.pdf" target="_blank" style="font:700 14px 'Archivo',sans-serif;color:#1E1A16;text-decoration:none;background:#FDFBF4;border:1.5px solid #1E1A16;border-radius:999px;padding:12px 24px;box-shadow:3px 3px 0 #1E1A16;transition:all .15s" style-hover="transform:translate(-2px,-2px);box-shadow:5px 5px 0 #1E1A16">Resume ↓</a>
+        <a href="tel:+639479982542" style="font:700 14px 'Archivo',sans-serif;color:#1E1A16;text-decoration:none;background:#FDFBF4;border:1.5px solid #1E1A16;border-radius:999px;padding:12px 24px;box-shadow:3px 3px 0 #1E1A16;transition:all .15s" style-hover="transform:translate(-2px,-2px);box-shadow:5px 5px 0 #1E1A16">+63 947 998 2542</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer style="background:#1E1A16;color:#B8B0A2;padding:18px 32px">
+    <div style="max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+      <span style="font:400 11.5px 'JetBrains Mono',monospace">© 2026 Allain Jhandred F. Quilala — made in Quezon City</span>
+      <div style="display:flex;gap:18px;align-items:center">
+        <button onClick="{{ replayIntro }}" style="font:500 11.5px 'JetBrains Mono',monospace;color:#B8B0A2;background:none;border:1px solid #B8B0A24D;border-radius:999px;padding:6px 13px;cursor:pointer;transition:all .15s" style-hover="color:#7ED03E;border-color:#7ED03E">↺ replay intro</button>
+        <a href="#top" style="font:500 11.5px 'JetBrains Mono',monospace;color:#B8B0A2;text-decoration:none" style-hover="color:#7ED03E">back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;showIntro&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Opening&quot; },
+  &quot;openToWork&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Status&quot; },
+  &quot;showDoodles&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Decoration&quot; }
+}">
+class Component extends DCLogic {
+  state = { introLines: 0, introBar: false, introLeaving: false, introDone: false };
+  introTimers = [];
+  words = [
+    { t: 'Build.', it: false },
+    { t: 'Test.', it: false },
+    { t: 'Ship.', it: true }
+  ];
+
+  componentDidMount() {
+    let seen = false;
+    try { seen = localStorage.getItem('aq-intro-seen') === '1'; } catch (e) {}
+    if ((this.props.showIntro ?? true) && !seen) {
+      try { localStorage.setItem('aq-intro-seen', '1'); } catch (e) {}
+      this.startIntro();
+    } else {
+      this.setState({ introDone: true });
+    }
+    this.onLinkClick = (ev) => {
+      const a = ev.target && ev.target.closest ? ev.target.closest('a[href$=".dc.html"]') : null;
+      if (!a || ev.metaKey || ev.ctrlKey || a.target === '_blank') return;
+      ev.preventDefault();
+      this.setState({ pageLeaving: true });
+      setTimeout(() => { window.location.href = a.getAttribute('href'); }, 650);
+    };
+    document.addEventListener('click', this.onLinkClick, true);
+  }
+  componentWillUnmount() { this.clearTimers(); document.removeEventListener('click', this.onLinkClick, true); }
+
+  buildPageLoader() {
+    if (!this.state.pageLeaving) return null;
+    const e = React.createElement;
+    return e('div', {
+      style: {
+        position: 'fixed', inset: 0, zIndex: 300,
+        backgroundColor: '#F4EFE6',
+        backgroundImage: 'repeating-linear-gradient(0deg,rgba(30,26,22,.055) 0 1px,transparent 1px 26px),repeating-linear-gradient(90deg,rgba(30,26,22,.055) 0 1px,transparent 1px 26px)',
+        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 22,
+        animation: 'pageFadeIn .25s ease both'
+      }
+    },
+      e('div', { style: { animation: 'spinSlow 8s linear infinite' } },
+        e('svg', { width: 104, height: 104, viewBox: '0 0 128 128' },
+          e('defs', null, e('path', { id: 'stampCircleLoad', d: 'M 64,64 m -46,0 a 46,46 0 1,1 92,0 a 46,46 0 1,1 -92,0' })),
+          e('circle', { cx: 64, cy: 64, r: 58, fill: '#F2E560', stroke: '#1E1A16', strokeWidth: 1.5 }),
+          e('circle', { cx: 64, cy: 64, r: 34, fill: 'none', stroke: '#1E1A16', strokeWidth: 1 }),
+          e('text', { style: { font: "700 11px 'JetBrains Mono', monospace", letterSpacing: '2.5px', fill: '#1E1A16' } },
+            e('textPath', { href: '#stampCircleLoad' }, 'FULL-STACK \u2726 PROD-READY \u2726 GMT+8 \u2726')),
+          e('text', { x: 64, y: 76, textAnchor: 'middle', style: { font: "italic 400 34px 'Instrument Serif', serif", fill: '#1E1A16' } }, 'Aq.')
+        )
+      ),
+      e('div', { style: { font: "italic 400 22px 'Instrument Serif', serif", color: '#1E1A16' } }, 'loading\u2026')
+    );
+  }
+
+  clearTimers() { this.introTimers.forEach(clearTimeout); this.introTimers = []; }
+
+  startIntro() {
+    this.clearTimers();
+    this.setState({ introLines: 0, introBar: false, introLeaving: false, introDone: false });
+    const step = 380;
+    this.words.forEach((_, i) => {
+      this.introTimers.push(setTimeout(() => this.setState({ introLines: i + 1 }), 320 + i * step));
+    });
+    const tBar = 320 + this.words.length * step + 80;
+    this.introTimers.push(setTimeout(() => this.setState({ introBar: true }), tBar));
+    this.introTimers.push(setTimeout(() => this.setState({ introLeaving: true }), tBar + 950));
+    this.introTimers.push(setTimeout(() => this.setState({ introDone: true }), tBar + 1800));
+  }
+
+  skipIntro = () => {
+    this.clearTimers();
+    this.setState({ introBar: true, introLeaving: true });
+    this.introTimers.push(setTimeout(() => this.setState({ introDone: true }), 850));
+  };
+
+  replayIntro = () => {
+    try { window.scrollTo({ top: 0 }); } catch (e) {}
+    this.startIntro();
+  };
+
+  buildIntro() {
+    if (this.state.introDone) return null;
+    if (!(this.props.showIntro ?? true) && !this.state.introLines) return null;
+    const e = React.createElement;
+    const wordEls = this.words.map((w, i) => e('span', {
+      key: i,
+      style: {
+        fontFamily: "'Instrument Serif', serif",
+        fontStyle: w.it ? 'italic' : 'normal',
+        fontWeight: 400,
+        fontSize: 'min(9vw, 72px)',
+        lineHeight: 1.05,
+        color: w.it ? '#6D57C8' : '#1E1A16',
+        display: 'inline-block',
+        opacity: i < this.state.introLines ? 1 : 0,
+        transform: i < this.state.introLines ? 'none' : 'translateY(22px) rotate(2deg)',
+        transition: 'opacity .4s ease, transform .4s cubic-bezier(.34,1.45,.64,1)'
+      }
+    }, w.t));
+    return e('div', {
+      style: {
+        position: 'fixed', inset: 0, zIndex: 200,
+        backgroundColor: '#F4EFE6',
+        backgroundImage: 'repeating-linear-gradient(0deg,rgba(30,26,22,.055) 0 1px,transparent 1px 26px),repeating-linear-gradient(90deg,rgba(30,26,22,.055) 0 1px,transparent 1px 26px)',
+        borderBottom: '2px solid #1E1A16',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        transform: this.state.introLeaving ? 'translateY(-101%)' : 'translateY(0)',
+        transition: 'transform .8s cubic-bezier(.76,0,.24,1)'
+      }
+    },
+      e('button', {
+        onClick: this.skipIntro,
+        style: {
+          position: 'absolute', top: 20, right: 26, font: "500 12px 'JetBrains Mono', monospace",
+          color: '#7A7263', background: 'none', border: '1px solid rgba(30,26,22,.3)',
+          borderRadius: 999, padding: '6px 14px', cursor: 'pointer'
+        }
+      }, 'skip \u25B8'),
+      e('div', { style: { position: 'relative', textAlign: 'center', padding: '0 24px' } },
+        e('div', {
+          style: { font: "500 12px 'JetBrains Mono', monospace", letterSpacing: '.08em', color: '#7A7263', marginBottom: 30 }
+        }, '~/allain.dev \u2014 portfolio \u00B7 2026'),
+        e('div', { style: { display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0 22px' } }, wordEls),
+        e('div', {
+          style: {
+            width: 'min(340px, 60vw)', height: 2, background: '#1E1A16', margin: '34px auto 0',
+            transformOrigin: 'left center',
+            transform: this.state.introBar ? 'scaleX(1)' : 'scaleX(0)',
+            transition: 'transform .6s cubic-bezier(.65,0,.35,1)'
+          }
+        }),
+        e('div', {
+          style: {
+            position: 'absolute', top: -46, right: -34, pointerEvents: 'none',
+            opacity: this.state.introBar ? 1 : 0,
+            transform: this.state.introBar ? 'rotate(-14deg) scale(1)' : 'rotate(-14deg) scale(1.9)',
+            transition: 'opacity .28s ease, transform .34s cubic-bezier(.34,1.56,.64,1)'
+          }
+        },
+          e('svg', { width: 104, height: 104, viewBox: '0 0 128 128' },
+            e('defs', null, e('path', { id: 'stampCircleIntro', d: 'M 64,64 m -46,0 a 46,46 0 1,1 92,0 a 46,46 0 1,1 -92,0' })),
+            e('circle', { cx: 64, cy: 64, r: 58, fill: '#F2E560', stroke: '#1E1A16', strokeWidth: 1.5 }),
+            e('circle', { cx: 64, cy: 64, r: 34, fill: 'none', stroke: '#1E1A16', strokeWidth: 1 }),
+            e('text', { style: { font: "700 11px 'JetBrains Mono', monospace", letterSpacing: '2.5px', fill: '#1E1A16' } },
+              e('textPath', { href: '#stampCircleIntro' }, 'FULL-STACK \u2726 PROD-READY \u2726 GMT+8 \u2726')),
+            e('text', { x: 64, y: 76, textAnchor: 'middle', style: { font: "italic 400 34px 'Instrument Serif', serif", fill: '#1E1A16' } }, 'Aq.')
+          )
+        )
+      )
+    );
+  }
+
+  buildMarquee() {
+    const e = React.createElement;
+    const seg = 'NEXT.JS \u2726 REACT \u2726 TYPESCRIPT \u2726 PYTHON \u00B7 FLASK \u2726 TAILWIND \u2726 TANSTACK \u2726 GCP \u2726 VERCEL \u2726 PLAYWRIGHT \u2726 BLOCKBEE \u2726 AKOOL \u2726 CLAUDE CODE \u2726 ';
+    const span = (k) => e('span', {
+      key: k,
+      style: { flex: 'none', font: "500 12.5px 'JetBrains Mono', monospace", letterSpacing: '.12em', color: '#F4EFE6', whiteSpace: 'pre' }
+    }, seg + seg);
+    return e('div', { style: { display: 'flex', overflow: 'hidden' } },
+      e('div', { style: { display: 'flex', flex: 'none', animation: 'tickerX 30s linear infinite', willChange: 'transform' } }, span('a'), span('b'))
+    );
+  }
+
+  buildStamp() {
+    const e = React.createElement;
+    return e('div', { style: { width: 128, height: 128, animation: 'spinSlow 20s linear infinite' } },
+      e('svg', { width: 128, height: 128, viewBox: '0 0 128 128' },
+        e('defs', null, e('path', { id: 'stampCircle', d: 'M 64,64 m -46,0 a 46,46 0 1,1 92,0 a 46,46 0 1,1 -92,0' })),
+        e('circle', { cx: 64, cy: 64, r: 58, fill: '#F2E560', stroke: '#1E1A16', strokeWidth: 1.5 }),
+        e('circle', { cx: 64, cy: 64, r: 34, fill: 'none', stroke: '#1E1A16', strokeWidth: 1 }),
+        e('text', { style: { font: "700 11px 'JetBrains Mono', monospace", letterSpacing: '2.5px', fill: '#1E1A16' } },
+          e('textPath', { href: '#stampCircle' }, 'FULL-STACK \u2726 PROD-READY \u2726 GMT+8 \u2726')),
+        e('text', { x: 64, y: 76, textAnchor: 'middle', style: { font: "italic 400 34px 'Instrument Serif', serif", fill: '#1E1A16' } }, 'Aq.')
+      )
+    );
+  }
+
+  renderVals() {
+    return {
+      introOverlay: this.buildIntro(),
+      pageLoader: this.buildPageLoader(),
+      marqueeEl: this.buildMarquee(),
+      stampEl: this.buildStamp(),
+      replayIntro: this.replayIntro,
+      blockCtx: (ev) => ev.preventDefault(),
+      openToWork: this.props.openToWork ?? true,
+      showDoodles: this.props.showDoodles ?? true
+    };
+  }
+}
+</script>
+</body>
+</html>

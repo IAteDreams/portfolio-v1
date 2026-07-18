@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Archivo:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F4EFE6;font-family:'Archivo',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth}
+a{color:#1E1A16}
+a:hover{color:#6D57C8}
+@keyframes spinSlow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes pageFadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pageFadeOut{to{opacity:0;visibility:hidden}}
+img{-webkit-user-drag:none;user-select:none}
+</style>
+</helmet>
+
+<div id="top" style="color:#1E1A16;overflow:clip">
+
+  {{ pageLoader }}
+  <div aria-hidden="true" style="position:fixed;inset:0;z-index:290;pointer-events:none;background-color:#F4EFE6;background-image:repeating-linear-gradient(0deg,rgba(30,26,22,.055) 0 1px,transparent 1px 26px),repeating-linear-gradient(90deg,rgba(30,26,22,.055) 0 1px,transparent 1px 26px);animation:pageFadeOut .5s ease .15s both"></div>
+
+  <!-- ============ HEADER ============ -->
+  <header data-screen-label="Header" style="position:sticky;top:0;z-index:80;background:#F4EFE6E6;backdrop-filter:blur(8px);border-bottom:1.5px solid #1E1A16">
+    <div style="max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 32px;height:58px">
+      <a href="index.html" style="font:700 13px 'JetBrains Mono',monospace;color:#1E1A16;text-decoration:none">← ~/allain.dev</a>
+      <span style="font:500 11px 'JetBrains Mono',monospace;letter-spacing:.06em;color:#7A7263">case study · 03</span>
+      <a href="mailto:jhandred05@gmail.com" style="display:inline-flex;align-items:center;gap:7px;font:700 12px 'Archivo',sans-serif;color:#1E1A16;text-decoration:none;background:#7ED03E;border:1.5px solid #1E1A16;border-radius:999px;padding:7px 14px;box-shadow:2px 2px 0 #1E1A16;transition:all .15s" style-hover="transform:translate(-1px,-1px);box-shadow:3px 3px 0 #1E1A16">email me</a>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section data-screen-label="Case hero" style="position:relative;background-color:#F4EFE6;background-image:repeating-linear-gradient(0deg,rgba(30,26,22,.055) 0 1px,transparent 1px 26px),repeating-linear-gradient(90deg,rgba(30,26,22,.055) 0 1px,transparent 1px 26px);border-bottom:1.5px solid #1E1A16;padding:72px 32px 76px">
+    <span aria-hidden="true" style="position:absolute;left:10%;top:70px;font:400 28px 'Instrument Serif',serif;transform:rotate(-12deg);display:inline-block">✳</span>
+    <span aria-hidden="true" style="position:absolute;right:12%;bottom:64px;font:400 20px 'Instrument Serif',serif;transform:rotate(10deg);display:inline-block;color:#B0552F">✦</span>
+    <div style="max-width:820px;margin:0 auto;text-align:center">
+      <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap">
+        <span style="font:500 11px 'JetBrains Mono',monospace;letter-spacing:.05em;background:#FDFBF4;border:1.5px solid #1E1A16;border-radius:999px;padding:6px 13px;transform:rotate(-1deg)">SHIPPED · MULTI-TENANT SAAS</span>
+        <span style="font:500 11px 'JetBrains Mono',monospace;letter-spacing:.05em;background:#FDFBF4;border:1.5px solid #1E1A16;border-radius:999px;padding:6px 13px;transform:rotate(1.2deg)">WEBRTC · AKOOL · STRIPE · JA/EN</span>
+      </div>
+      <h1 style="margin:26px 0 0;font:400 68px/1.05 'Instrument Serif',serif;letter-spacing:-.015em">Live AI Face-Swap <em style="font-style:italic;color:#6D57C8">Streaming</em></h1>
+      <p style="margin:20px auto 0;max-width:640px;font:400 16px/1.65 'Archivo',sans-serif;color:#4A443B">A platform where streaming agencies run their talent with real-time AI face swap applied straight into the browser broadcast. Three roles — platform owner, agency, streamer — each with their own console: metered subscription plans in ¥, live session monitoring, shared face libraries, and full audit trails, localized JA/EN.</p>
+      <div style="margin-top:26px;font:400 11.5px 'JetBrains Mono',monospace;color:#7A7263">client project — built for agencies managing live-streaming talent at scale</div>
+    </div>
+  </section>
+
+  <!-- ============ STREAMER STUDIO — PEACH ============ -->
+  <section data-screen-label="Streamer studio" style="position:relative;background:#F3CDA4;border-bottom:1.5px solid #1E1A16;padding:70px 32px 80px">
+    <span aria-hidden="true" style="position:absolute;right:7%;top:58px;font:400 26px 'Instrument Serif',serif;transform:rotate(12deg);display:inline-block;color:#B0552F">✳</span>
+    <div style="max-width:1160px;margin:0 auto">
+      <div style="font:500 12px 'JetBrains Mono',monospace;letter-spacing:.06em;color:#5A4630">// the streamer studio</div>
+      <h2 style="margin:10px 0 0;font:400 46px/1.05 'Instrument Serif',serif">Pick a face, <em style="font-style:italic">go live.</em></h2>
+      <p style="margin:14px 0 0;max-width:580px;font:400 15px/1.6 'Archivo',sans-serif;color:#4A443B">Streamers choose a saved face and background, set stream quality, and start a session — the swap runs in real time over WebRTC with live face-lock and face-match quality metrics. Usage counts down against the agency's plan hours.</p>
+
+      <div style="display:flex;flex-direction:column;gap:44px;margin-top:44px">
+        <figure style="margin:0;position:relative">
+          <div style="position:absolute;top:-13px;left:44px;transform:rotate(-4deg);width:78px;height:24px;background:#F2E560B3;border:1px solid rgba(30,26,22,.25);z-index:2"></div>
+          <div style="background:#FDFBF4;border:2px solid #1E1A16;box-shadow:5px 6px 0 rgba(30,26,22,.3);padding:12px 12px 14px">
+            <img draggable="false" onContextMenu="{{ blockCtx }}" src="uploads/pasted-1784350527088-0.png" alt="Streamer studio with face library, backgrounds and live preview" style="display:block;width:100%;height:auto;border:1.5px solid #1E1A16"/>
+            <figcaption style="margin-top:11px;font:400 12px 'JetBrains Mono',monospace;color:#5A5348">studio — face library, background picker, stream quality, monthly-hours meter, and detection quality readouts</figcaption>
+          </div>
+        </figure>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
+          <figure style="margin:0;position:relative">
+            <div style="position:absolute;top:-13px;right:40px;transform:rotate(4deg);width:70px;height:22px;background:#F2E560B3;border:1px solid rgba(30,26,22,.25);z-index:2"></div>
+            <div style="background:#FDFBF4;border:2px solid #1E1A16;box-shadow:5px 6px 0 rgba(30,26,22,.3);padding:12px 12px 14px">
+              <img draggable="false" onContextMenu="{{ blockCtx }}" src="uploads/pasted-1784350538898-0.png" alt="Streamer analytics" style="display:block;width:100%;height:300px;object-fit:cover;object-position:top;border:1.5px solid #1E1A16"/>
+              <figcaption style="margin-top:11px;font:400 12px 'JetBrains Mono',monospace;color:#5A5348">analytics — per-session duration, average FPS and latency, against the credit balance</figcaption>
+            </div>
+          </figure>
+          <figure style="margin:0;position:relative">
+            <div style="position:absolute;top:-13px;left:50%;transform:translateX(-50%) rotate(-3deg);width:70px;height:22px;background:#F2E560B3;border:1px solid rgba(30,26,22,.25);z-index:2"></div>
+            <div style="background:#FDFBF4;border:2px solid #1E1A16;box-shadow:5px 6px 0 rgba(30,26,22,.3);padding:12px 12px 14px">
+              <img draggable="false" onContextMenu="{{ blockCtx }}" src="uploads/pasted-1784349841550-0.png" alt="Sign-in screen" style="display:block;width:100%;height:300px;object-fit:cover;object-position:top;border:1.5px solid #1E1A16"/>
+              <figcaption style="margin-top:11px;font:400 12px 'JetBrains Mono',monospace;color:#5A5348">auth — role-aware sign-in routing owners, agencies and streamers to their own consoles</figcaption>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AGENCY WORKSPACE — BUTTER ============ -->
+  <section data-screen-label="Agency workspace" style="position:relative;background:#F2E560;border-bottom:1.5px solid #1E1A16;padding:70px 32px 80px">
+    <span aria-hidden="true" style="position:absolute;right:8%;top:64px;font:400 28px 'Instrument Serif',serif;transform:rotate(10deg);display:inline-block">✺</span>
+    <div style="max-width:1160px;margin:0 auto">
+      <div style="font:500 12px 'JetBrains Mono',monospace;letter-spacing:.06em;color:#6B6018">// the agency workspace</div>
+      <h2 style="margin:10px 0 0;font:400 46px/1.05 'Instrument Serif',serif">Run the talent, <em style="font-style:italic">watch the meter.</em></h2>
+      <p style="margin:14px 0 0;max-width:580px;font:400 15px/1.6 'Archivo',sans-serif;color:#4A443B">Agencies manage streamers and managers within plan limits, share faces and backgrounds across the team, monitor live sessions and service health, and handle their own subscription — with overtime billed per hour past the plan.</p>
+
+      <div style="display:flex;flex-direction:column;gap:44px;margin-top:44px">
+        <figure style="margin:0;position:relative">
+          <div style="position:absolute;top:-13px;left:50%;transform:translateX(-50%) rotate(-2deg);width:78px;height:24px;background:#FDFBF4B3;border:1px solid rgba(30,26,22,.25);z-index:2"></div>
+          <div style="background:#FDFBF4;border:2px solid #1E1A16;box-shadow:5px 6px 0 rgba(30,26,22,.3);padding:12px 12px 14px">
+            <img draggable="false" onContextMenu="{{ blockCtx }}" src="uploads/pasted-1784350286600-0.png" alt="Subscription plans with metered limits" style="display:block;width:100%;height:auto;border:1.5px solid #1E1A16"/>
+            <figcaption style="margin-top:11px;font:400 12px 'JetBrains Mono',monospace;color:#5A5348">billing — five plan tiers metered on sessions, streaming hours, faces, seats and resolution, with per-hour overtime</figcaption>
+          </div>
+        </figure>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:26px">
+          <figure style="margin:0;position:relative">
+            <div style="position:absolute;top:-13px;left:34px;transform:rotate(3deg);width:64px;height:22px;background:#FDFBF4B3;border:1px solid rgba(30,26,22,.25);z-index:2"></div>
+            <div style="background:#FDFBF4;border:2px solid #1E1A16;box-shadow:5px 6px 0 rgba(30,26,22,.3);padding:10px 10px 12px">
+              <img draggable="false" onContextMenu="{{ blockCtx }}" src="uploads/pasted-1784350373622-0.png" alt="Streaming service health" style="display:block;width:100%;height:250px;object-fit:cover;object-position:top;border:1.5px solid #1E1A16"/>
+              <figcaption style="margin-top:10px;font:400 11.5px 'JetBrains Mono',monospace;color:#5A5348">streaming — AKOOL/Agora health checks, session history &amp; live sessions</figcaption>
+            </div>
+          </figure>
+          <figure style="margin:0;position:relative">
+            <div style="position:absolute;top:-13px;left:50%;transform:translateX(-50%) rotate(-3deg);width:64px;height:22px;background:#FDFBF4B3;border:1px solid rgba(30,26,22,.25);z-index:2"></div>
+            <div style="background:#FDFBF4;border:2px solid #1E1A16;box-shadow:5px 6px 0 rgba(30,26,22,.3);padding:10px 10px 12px">
+              <img draggable="false" onContextMenu="{{ blockCtx }}" src="uploads/pasted-1784350421181-0.png" alt="Team management" style="display:block;width:100%;height:250px;object-fit:cover;object-position:top;border:1.5px solid #1E1A16"/>
+              <figcaption style="margin-top:10px;font:400 11.5px 'JetBrains Mono',monospace;color:#5A5348">team — streamer &amp; manager seats gated by plan, with CSV bulk import</figcaption>
+            </div>
+          </figure>
+          <figure style="margin:0;position:relative">
+            <div style="position:absolute;top:-13px;right:34px;transform:rotate(4deg);width:64px;height:22px;background:#FDFBF4B3;border:1px solid rgba(30,26,22,.25);z-index:2"></div>
+            <div style="background:#FDFBF4;border:2px solid #1E1A16;box-shadow:5px 6px 0 rgba(30,26,22,.3);padding:10px 10px 12px">
+              <img draggable="false" onContextMenu="{{ blockCtx }}" src="uploads/pasted-1784350437741-0.png" alt="Shared library" style="display:block;width:100%;height:250px;object-fit:cover;object-position:top;border:1.5px solid #1E1A16"/>
+              <figcaption style="margin-top:10px;font:400 11.5px 'JetBrains Mono',monospace;color:#5A5348">library — faces &amp; backgrounds shared agency-wide, plus per-streamer uploads</figcaption>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OWNER CONSOLE — LILAC ============ -->
+  <section data-screen-label="Owner console" style="position:relative;background:#A292E8;border-bottom:1.5px solid #1E1A16;padding:70px 32px 80px">
+    <span aria-hidden="true" style="position:absolute;left:6%;bottom:60px;font:400 24px 'Instrument Serif',serif;transform:rotate(-10deg);display:inline-block;color:#FBF7EE">✳</span>
+    <div style="max-width:1160px;margin:0 auto">
+      <div style="font:500 12px 'JetBrains Mono',monospace;letter-spacing:.06em;color:#3A2E6E">// the owner console</div>
+      <h2 style="margin:10px 0 0;font:400 46px/1.05 'Instrument Serif',serif">The whole platform, <em style="font-style:italic">one seat.</em></h2>
+      <p style="margin:14px 0 0;max-width:580px;font:400 15px/1.6 'Archivo',sans-serif;color:#2E2555">The platform owner onboards agencies and delegate operators, creates and re-prices Stripe-backed plans, reconciles revenue — MRR, ARPU, churn, plan distribution — and audits every admin action.</p>
+
+      <div style="display:flex;flex-direction:column;gap:44px;margin-top:44px">
+        <figure style="margin:0;position:relative">
+          <div style="position:absolute;top:-13px;left:50%;transform:translateX(-50%) rotate(-2deg);width:78px;height:24px;background:#F2E560B3;border:1px solid rgba(30,26,22,.25);z-index:2"></div>
+          <div style="background:#FDFBF4;border:2px solid #1E1A16;box-shadow:5px 6px 0 rgba(30,26,22,.35);padding:12px 12px 14px">
+            <img draggable="false" onContextMenu="{{ blockCtx }}" src="uploads/pasted-1784350149045-0.png" alt="Sales dashboard with MRR, ARPU, churn and revenue trend" style="display:block;width:100%;height:auto;border:1.5px solid #1E1A16"/>
+            <figcaption style="margin-top:11px;font:400 12px 'JetBrains Mono',monospace;color:#5A5348">sales — MRR/ARR, ARPU, churn, 12-month revenue trend split subscription vs overage, plan distribution, and one-click revenue reconciliation</figcaption>
+          </div>
+        </figure>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:26px">
+          <figure style="margin:0;position:relative">
+            <div style="position:absolute;top:-13px;left:34px;transform:rotate(3deg);width:64px;height:22px;background:#F2E560B3;border:1px solid rgba(30,26,22,.25);z-index:2"></div>
+            <div style="background:#FDFBF4;border:2px solid #1E1A16;box-shadow:5px 6px 0 rgba(30,26,22,.35);padding:10px 10px 12px">
+              <img draggable="false" onContextMenu="{{ blockCtx }}" src="uploads/pasted-1784350164556-0.png" alt="Plan management" style="display:block;width:100%;height:250px;object-fit:cover;object-position:top;border:1.5px solid #1E1A16"/>
+              <figcaption style="margin-top:10px;font:400 11.5px 'JetBrains Mono',monospace;color:#5A5348">plans — create, edit, archive tiers; regenerate Stripe prices in place</figcaption>
+            </div>
+          </figure>
+          <figure style="margin:0;position:relative">
+            <div style="position:absolute;top:-13px;left:50%;transform:translateX(-50%) rotate(-3deg);width:64px;height:22px;background:#F2E560B3;border:1px solid rgba(30,26,22,.25);z-index:2"></div>
+            <div style="background:#FDFBF4;border:2px solid #1E1A16;box-shadow:5px 6px 0 rgba(30,26,22,.35);padding:10px 10px 12px">
+              <img draggable="false" onContextMenu="{{ blockCtx }}" src="uploads/pasted-1784350041132-0.png" alt="Agency onboarding invite" style="display:block;width:100%;height:250px;object-fit:cover;object-position:center;border:1.5px solid #1E1A16"/>
+              <figcaption style="margin-top:10px;font:400 11.5px 'JetBrains Mono',monospace;color:#5A5348">agencies — invite-based onboarding; suspend, restore, or switch plans per org</figcaption>
+            </div>
+          </figure>
+          <figure style="margin:0;position:relative">
+            <div style="position:absolute;top:-13px;right:34px;transform:rotate(4deg);width:64px;height:22px;background:#F2E560B3;border:1px solid rgba(30,26,22,.25);z-index:2"></div>
+            <div style="background:#FDFBF4;border:2px solid #1E1A16;box-shadow:5px 6px 0 rgba(30,26,22,.35);padding:10px 10px 12px">
+              <img draggable="false" onContextMenu="{{ blockCtx }}" src="uploads/pasted-1784350205174-0.png" alt="Audit logs" style="display:block;width:100%;height:250px;object-fit:cover;object-position:top;border:1.5px solid #1E1A16"/>
+              <figcaption style="margin-top:10px;font:400 11.5px 'JetBrains Mono',monospace;color:#5A5348">audit logs — every admin action with actor, target, reason and timestamp</figcaption>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHAT I BUILT — CREAM GRID ============ -->
+  <section data-screen-label="What I built" style="position:relative;background-color:#F4EFE6;background-image:repeating-linear-gradient(0deg,rgba(30,26,22,.055) 0 1px,transparent 1px 26px),repeating-linear-gradient(90deg,rgba(30,26,22,.055) 0 1px,transparent 1px 26px);border-bottom:1.5px solid #1E1A16;padding:70px 32px 80px">
+    <span aria-hidden="true" style="position:absolute;right:8%;top:64px;font:400 28px 'Instrument Serif',serif;transform:rotate(10deg);display:inline-block;color:#B0552F">✦</span>
+    <div style="max-width:1160px;margin:0 auto">
+      <div style="font:500 12px 'JetBrains Mono',monospace;letter-spacing:.06em;color:#7A7263">// what I owned</div>
+      <h2 style="margin:10px 0 0;font:400 46px/1.05 'Instrument Serif',serif">Built end to <em style="font-style:italic">end.</em></h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:38px">
+        <div style="background:#FDFBF4;border:1.5px solid #1E1A16;border-radius:16px;box-shadow:3px 4px 0 rgba(30,26,22,.3);padding:22px 24px">
+          <h3 style="margin:0;font:600 16px 'Archivo',sans-serif">Real-time swap pipeline</h3>
+          <p style="margin:8px 0 0;font:400 13.5px/1.6 'Archivo',sans-serif;color:#4A443B">AKOOL face swap over Agora WebRTC, applied live into the broadcast with face-lock / face-match quality telemetry and provider failover checks.</p>
+        </div>
+        <div style="background:#FDFBF4;border:1.5px solid #1E1A16;border-radius:16px;box-shadow:3px 4px 0 rgba(30,26,22,.3);padding:22px 24px">
+          <h3 style="margin:0;font:600 16px 'Archivo',sans-serif">Three-role architecture</h3>
+          <p style="margin:8px 0 0;font:400 13.5px/1.6 'Archivo',sans-serif;color:#4A443B">Owner, agency, and streamer consoles on one codebase — scoped permissions, invite-based onboarding, and delegate operator accounts.</p>
+        </div>
+        <div style="background:#FDFBF4;border:1.5px solid #1E1A16;border-radius:16px;box-shadow:3px 4px 0 rgba(30,26,22,.3);padding:22px 24px">
+          <h3 style="margin:0;font:600 16px 'Archivo',sans-serif">Metered billing</h3>
+          <p style="margin:8px 0 0;font:400 13.5px/1.6 'Archivo',sans-serif;color:#4A443B">Stripe-backed plan tiers metered on concurrent sessions, streaming hours, faces and seats — with per-hour overtime past plan limits.</p>
+        </div>
+        <div style="background:#FDFBF4;border:1.5px solid #1E1A16;border-radius:16px;box-shadow:3px 4px 0 rgba(30,26,22,.3);padding:22px 24px">
+          <h3 style="margin:0;font:600 16px 'Archivo',sans-serif">Revenue reporting</h3>
+          <p style="margin:8px 0 0;font:400 13.5px/1.6 'Archivo',sans-serif;color:#4A443B">MRR/ARR, ARPU, churn, plan distribution, and a 12-month trend split subscription vs overage — with reconciliation against the ledger.</p>
+        </div>
+        <div style="background:#FDFBF4;border:1.5px solid #1E1A16;border-radius:16px;box-shadow:3px 4px 0 rgba(30,26,22,.3);padding:22px 24px">
+          <h3 style="margin:0;font:600 16px 'Archivo',sans-serif">Teams &amp; shared libraries</h3>
+          <p style="margin:8px 0 0;font:400 13.5px/1.6 'Archivo',sans-serif;color:#4A443B">Plan-gated streamer and manager seats with CSV bulk import, and face / background libraries shared agency-wide.</p>
+        </div>
+        <div style="background:#FDFBF4;border:1.5px solid #1E1A16;border-radius:16px;box-shadow:3px 4px 0 rgba(30,26,22,.3);padding:22px 24px">
+          <h3 style="margin:0;font:600 16px 'Archivo',sans-serif">Ops, audit &amp; localization</h3>
+          <p style="margin:8px 0 0;font:400 13.5px/1.6 'Archivo',sans-serif;color:#4A443B">Service health checks across AKOOL, Agora, GPU and credits; a full audit trail of admin actions; the whole product localized JA/EN.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section data-screen-label="CTA" style="position:relative;background-color:#F4EFE6;background-image:repeating-linear-gradient(0deg,rgba(30,26,22,.055) 0 1px,transparent 1px 26px),repeating-linear-gradient(90deg,rgba(30,26,22,.055) 0 1px,transparent 1px 26px);padding:76px 32px 80px;text-align:center">
+    <div style="max-width:640px;margin:0 auto">
+      <h2 style="margin:0;font:400 54px/1.06 'Instrument Serif',serif">Want the full <em style="font-style:italic;color:#6D57C8">story?</em></h2>
+      <p style="margin:14px 0 0;font:400 15px/1.6 'Archivo',sans-serif;color:#4A443B">How the swap pipeline stays real-time, the overtime billing edge cases, the provider failover design — happy to walk through it.</p>
+      <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:26px">
+        <a href="mailto:jhandred05@gmail.com?subject=Tell%20me%20about%20the%20AI%20streaming%20platform" style="font:700 14px 'Archivo',sans-serif;color:#1E1A16;text-decoration:none;background:#7ED03E;border:1.5px solid #1E1A16;border-radius:999px;padding:12px 24px;box-shadow:3px 3px 0 #1E1A16;transition:all .15s" style-hover="transform:translate(-2px,-2px);box-shadow:5px 5px 0 #1E1A16">Email me</a>
+        <a href="index.html" style="font:700 14px 'Archivo',sans-serif;color:#1E1A16;text-decoration:none;background:#FDFBF4;border:1.5px solid #1E1A16;border-radius:999px;padding:12px 24px;box-shadow:3px 3px 0 #1E1A16;transition:all .15s" style-hover="transform:translate(-2px,-2px);box-shadow:5px 5px 0 #1E1A16">← Back to portfolio</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#1E1A16;color:#B8B0A2;padding:18px 32px;text-align:center">
+    <span style="font:400 11.5px 'JetBrains Mono',monospace">© 2026 Allain Jhandred F. Quilala — made in Quezon City</span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { pageLeaving: false };
+
+  componentDidMount() {
+    this.onLinkClick = (ev) => {
+      const a = ev.target && ev.target.closest ? ev.target.closest('a[href$=".dc.html"]') : null;
+      if (!a || ev.metaKey || ev.ctrlKey || a.target === '_blank') return;
+      ev.preventDefault();
+      this.setState({ pageLeaving: true });
+      setTimeout(() => { window.location.href = a.getAttribute('href'); }, 650);
+    };
+    document.addEventListener('click', this.onLinkClick, true);
+  }
+  componentWillUnmount() { document.removeEventListener('click', this.onLinkClick, true); }
+
+  buildPageLoader() {
+    if (!this.state.pageLeaving) return null;
+    const e = React.createElement;
+    return e('div', {
+      style: {
+        position: 'fixed', inset: 0, zIndex: 300,
+        backgroundColor: '#F4EFE6',
+        backgroundImage: 'repeating-linear-gradient(0deg,rgba(30,26,22,.055) 0 1px,transparent 1px 26px),repeating-linear-gradient(90deg,rgba(30,26,22,.055) 0 1px,transparent 1px 26px)',
+        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 22,
+        animation: 'pageFadeIn .25s ease both'
+      }
+    },
+      e('div', { style: { animation: 'spinSlow 8s linear infinite' } },
+        e('svg', { width: 104, height: 104, viewBox: '0 0 128 128' },
+          e('defs', null, e('path', { id: 'stampCircleLoad', d: 'M 64,64 m -46,0 a 46,46 0 1,1 92,0 a 46,46 0 1,1 -92,0' })),
+          e('circle', { cx: 64, cy: 64, r: 58, fill: '#F2E560', stroke: '#1E1A16', strokeWidth: 1.5 }),
+          e('circle', { cx: 64, cy: 64, r: 34, fill: 'none', stroke: '#1E1A16', strokeWidth: 1 }),
+          e('text', { style: { font: "700 11px 'JetBrains Mono', monospace", letterSpacing: '2.5px', fill: '#1E1A16' } },
+            e('textPath', { href: '#stampCircleLoad' }, 'FULL-STACK \u2726 PROD-READY \u2726 GMT+8 \u2726')),
+          e('text', { x: 64, y: 76, textAnchor: 'middle', style: { font: "italic 400 34px 'Instrument Serif', serif", fill: '#1E1A16' } }, 'Aq.')
+        )
+      ),
+      e('div', { style: { font: "italic 400 22px 'Instrument Serif', serif", color: '#1E1A16' } }, 'loading\u2026')
+    );
+  }
+
+  renderVals() {
+    return {
+      pageLoader: this.buildPageLoader(),
+      blockCtx: (ev) => ev.preventDefault()
+    };
+  }
+}
+</script>
+</body>
+</html>
