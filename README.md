@@ -31,12 +31,14 @@ portfolio-v1/
 ├── case-crypto.html      # Case study pages
 ├── case-elearning.html
 ├── case-streaming.html
+├── case-boostdeck.html
 ├── support.js            # Shared runtime helpers
 ├── image-slot.js         # Lazy image slot component
 └── uploads/              # Images and static assets
     ├── crypto/           # Crypto lending case study screenshots
     ├── elearning/        # E-learning case study screenshots
     ├── streaming/        # AI streaming case study screenshots
+    ├── boostdeck/        # BoostDeck desktop app screenshots
     └── profile/          # Profile photo and resume PDF
 ```
 

@@ -703,15 +703,15 @@
                 color: #4a443b;
               "
             >
-              Three production apps across fintech, AI media and edtech — I go
-              where the product goes. Client work, so screenshots live behind an
-              email; the slots below are ready when you are.
+              Three production apps across fintech, AI media and edtech, plus an
+              open-source desktop tool of my own — I go where the product goes.
+              Client work is blurred or trimmed; ask for a walkthrough.
             </p>
 
             <div class="pfGrid3"
               style="
                 display: grid;
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(2, 1fr);
                 gap: 26px;
                 margin-top: 40px;
               "
@@ -1076,6 +1076,131 @@
                 </p>
                 <a
                   href="case-elearning.html"
+                  style="
+                    display: inline-block;
+                    margin-top: 14px;
+                    font:
+                      600 13px &quot;Archivo&quot;,
+                      sans-serif;
+                    color: #1e1a16;
+                    text-decoration: underline;
+                    text-underline-offset: 3px;
+                  "
+                  style-hover="background:#F2E560"
+                  >View case study →</a
+                >
+              </article>
+              <article
+                style="
+                  position: relative;
+                  background: #fdf6ec;
+                  border: 2px solid #1e1a16;
+                  border-radius: 16px 240px 14px 230px / 235px 15px 245px 14px;
+                  box-shadow: 4px 5px 0 rgba(30, 26, 22, 0.3);
+                  padding: 22px 22px 24px;
+                  transition: transform 0.18s;
+                "
+                style-hover="transform:translateY(-4px)"
+              >
+                <div
+                  style="
+                    position: absolute;
+                    top: -12px;
+                    right: 38px;
+                    transform: rotate(5deg);
+                    width: 70px;
+                    height: 22px;
+                    background: #f2e560b3;
+                    border: 1px solid rgba(30, 26, 22, 0.25);
+                  "
+                ></div>
+                <a href="case-boostdeck.html" style="display: block"
+                  ><img class="pfCardImg"
+                    draggable="false"
+                    onContextMenu="{{ blockCtx }}"
+                    src="uploads/boostdeck/main-window.png"
+                    alt="BoostDeck main window"
+                    style="
+                      display: block;
+                      width: 100%;
+                      height: 160px;
+                      object-fit: cover;
+                      object-position: top;
+                      border: 1.5px solid #1e1a16;
+                      border-radius: 8px;
+                      background: #f4efe6;
+                    "
+                /></a>
+                <h3
+                  style="
+                    margin: 16px 0 0;
+                    font:
+                      400 26px/1.15 &quot;Instrument Serif&quot;,
+                      serif;
+                  "
+                >
+                  BoostDeck Volume Booster
+                </h3>
+                <div
+                  style="
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 6px;
+                    margin-top: 10px;
+                  "
+                >
+                  <span
+                    style="
+                      font:
+                        500 10px &quot;JetBrains Mono&quot;,
+                        monospace;
+                      border: 1px solid #1e1a1666;
+                      border-radius: 999px;
+                      padding: 3px 9px;
+                      color: #5a5348;
+                    "
+                    >rust</span
+                  >
+                  <span
+                    style="
+                      font:
+                        500 10px &quot;JetBrains Mono&quot;,
+                        monospace;
+                      border: 1px solid #1e1a1666;
+                      border-radius: 999px;
+                      padding: 3px 9px;
+                      color: #5a5348;
+                    "
+                    >wasapi</span
+                  >
+                  <span
+                    style="
+                      font:
+                        500 10px &quot;JetBrains Mono&quot;,
+                        monospace;
+                      border: 1px solid #1e1a1666;
+                      border-radius: 999px;
+                      padding: 3px 9px;
+                      color: #5a5348;
+                    "
+                    >open source</span
+                  >
+                </div>
+                <p
+                  style="
+                    margin: 11px 0 0;
+                    font:
+                      400 13.5px/1.6 &quot;Archivo&quot;,
+                      sans-serif;
+                    color: #4a443b;
+                  "
+                >
+                  A Windows desktop app that boosts every app's sound past 100%
+                  — real-time audio routing with an always-on limiter so nothing
+                  clips. Released as v1.0.0.
+                </p>
+                <a
+                  href="case-boostdeck.html"
                   style="
                     display: inline-block;
                     margin-top: 14px;
@@ -2703,7 +2828,7 @@
 
         buildMarquee() {
           const e = React.createElement;
-          const seg = 'NEXT.JS \u2726 REACT \u2726 TYPESCRIPT \u2726 PYTHON \u00B7 FLASK \u2726 TAILWIND \u2726 TANSTACK \u2726 GCP \u2726 VERCEL \u2726 PLAYWRIGHT \u2726 BLOCKBEE \u2726 AKOOL \u2726 CLAUDE CODE \u2726 ';
+          const seg = 'NEXT.JS \u2726 REACT \u2726 TYPESCRIPT \u2726 PYTHON \u00B7 FLASK \u2726 RUST \u2726 TAILWIND \u2726 TANSTACK \u2726 GCP \u2726 VERCEL \u2726 PLAYWRIGHT \u2726 BLOCKBEE \u2726 AKOOL \u2726 CLAUDE CODE \u2726 ';
           const span = (k) => e('span', {
             key: k,
             style: { flex: 'none', font: "500 12.5px 'JetBrains Mono', monospace", letterSpacing: '.12em', color: '#F4EFE6', whiteSpace: 'pre' }
